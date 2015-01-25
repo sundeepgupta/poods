@@ -6,7 +6,7 @@ struct Bottles {
         return verses(high: 99, low: 0)
     }
     
-    func verses(#high: Int, low: Int) -> String {
+    func verses(#high:Int, low:Int) -> String {
         var verses = [String]()
         let range = reverse(low...high)
         for i in range {
@@ -17,16 +17,61 @@ struct Bottles {
         return joiner.join(verses)
     }
     
-    func verse(number: Int) -> String {
-        switch number {
-        case 0:
-            return "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall."
-        case 1:
-            return "\(number) bottle of beer on the wall, \(number) bottle of beer.\nTake it down and pass it around, no more bottles of beer on the wall."
-        case 2:
-            return "\(number) bottles of beer on the wall, \(number) bottles of beer.\nTake one down and pass it around, \(number-1) bottle of beer on the wall."
-        default:
-            return "\(number) bottles of beer on the wall, \(number) bottles of beer.\nTake one down and pass it around, \(number-1) bottles of beer on the wall."
+    func verse(number:Int) -> String {
+        return "\(capitalizedPhrase((quantity(number: number)))) \(container(number: number)) of beer on the wall, "
+            + "\(quantity(number: number)) \(container(number: number)) of beer.\n"
+            + "\(action(number: number)), "
+            + "\(successor(number: number)) \(container(number: number-1)) of beer on the wall."
+    }
+
+    
+    // MARK: - Private
+    private func container(#number:Int) -> String {
+        if number == 1 {
+            return "bottle"
+        } else {
+            return "bottles"
         }
+    }
+    
+    private func pronoun(#number:Int) -> String {
+        if number == 1 {
+            return "it"
+        } else {
+            return "one"
+        }
+    }
+    
+    private func quantity(#number:Int) -> String {
+        if number == 0 {
+            return "no more"
+        } else {
+            return String(number)
+        }
+    }
+    
+    private func action(#number:Int) -> String {
+        if number == 0 {
+            return "Go to the store and buy some more"
+        } else {
+            return "Take \(pronoun(number: number)) down and pass it around"
+        }
+    }
+    
+    private func successor(#number:Int) -> String {
+        if number == 0 {
+            return quantity(number: 99)
+        } else {
+            return quantity(number: number-1)
+        }
+    }
+    
+    
+    // Helper
+    private func capitalizedPhrase(phrase:String) -> String {
+        let firstCharIndex = advance(phrase.startIndex, 1)
+        let firstChar = phrase.substringToIndex(firstCharIndex).uppercaseString
+        let firstCharRange = phrase.startIndex..<firstCharIndex
+        return phrase.stringByReplacingCharactersInRange(firstCharRange, withString: firstChar)
     }
 }

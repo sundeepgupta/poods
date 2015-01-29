@@ -21,7 +21,7 @@ struct Bottles {
         return "\(capitalizedPhrase((quantity(number: number)))) \(container(number: number)) of beer on the wall, "
             + "\(quantity(number: number)) \(container(number: number)) of beer.\n"
             + "\(action(number: number)), "
-            + "\(successor(number: number)) \(container(number: number-1)) of beer on the wall."
+            + "\(quantity(number: successor(number: number))) \(container(number: successor(number: number))) of beer on the wall."
     }
 
     
@@ -58,11 +58,11 @@ struct Bottles {
         }
     }
     
-    private func successor(#number:Int) -> String {
+    private func successor(#number:Int) -> Int {
         if number == 0 {
-            return quantity(number: 99)
+            return 99
         } else {
-            return quantity(number: number-1)
+            return number-1
         }
     }
     
@@ -74,4 +74,6 @@ struct Bottles {
         let firstCharRange = phrase.startIndex..<firstCharIndex
         return phrase.stringByReplacingCharactersInRange(firstCharRange, withString: firstChar)
     }
+    
+    
 }

@@ -65,5 +65,11 @@ class bottlesTest: XCTestCase {
         XCTAssertEqual(bottles.verses(high: 99, low: 0), bottles.song())
     }
     
-    
+    func _testSixPack() {
+        let bottles = Bottles()
+        
+        let expected = "7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 1 six pack of beer on the wall.\n\n1 six pack of beer on the wall, 1 six pack of beer.\nTake one down and pass it around, 5 bottles of beer on the wall."
+        
+        XCTAssertEqual(expected, bottles.verses(high: 7, low: 6))
+    }
 }

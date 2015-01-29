@@ -1,13 +1,16 @@
 import Foundation
 
-struct Bottles {
-    
-    func verse(bottleNumber: Int) -> String {
-        return ""
-    }
-}
+let phrase = "bla"
+let firstCharIndex = advance(phrase.startIndex, 1)
+let firstChar = phrase.substringToIndex(firstCharIndex).uppercaseString
+let firstCharRange = phrase.startIndex..<firstCharIndex
+let newPhrase = phrase.stringByReplacingCharactersInRange(firstCharRange, withString: firstChar)
 
-let bottles = Bottles()
 
-bottles.verse(99) == ""
+
+
+
+
+
+
 

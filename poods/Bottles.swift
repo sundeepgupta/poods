@@ -18,10 +18,10 @@ struct Bottles {
     }
     
     func verse(number:Int) -> String {
-        return "\(capitalizedPhrase((quantity(number: number)))) \(container(number: number)) of beer on the wall, "
-            + "\(quantity(number: number)) \(container(number: number)) of beer.\n"
+        return "\(capitalizedPhrase(containerDescription(number: number))) of beer on the wall, "
+            + "\(containerDescription(number: number)) of beer.\n"
             + "\(action(number: number)), "
-            + "\(quantity(number: successor(number: number))) \(container(number: successor(number: number))) of beer on the wall."
+            + "\(containerDescription(number: successor(number: number))) of beer on the wall."
     }
 
     
@@ -31,14 +31,6 @@ struct Bottles {
             return "bottle"
         } else {
             return "bottles"
-        }
-    }
-    
-    private func pronoun(#number:Int) -> String {
-        if number == 1 {
-            return "it"
-        } else {
-            return "one"
         }
     }
     
@@ -58,12 +50,24 @@ struct Bottles {
         }
     }
     
+    private func pronoun(#number:Int) -> String {
+        if number == 1 {
+            return "it"
+        } else {
+            return "one"
+        }
+    }
+    
     private func successor(#number:Int) -> Int {
         if number == 0 {
             return 99
         } else {
             return number-1
         }
+    }
+    
+    private func containerDescription(#number: Int) -> String {
+        return "\(quantity(number: number)) \(container(number: number))"
     }
     
     

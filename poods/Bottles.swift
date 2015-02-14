@@ -31,6 +31,8 @@ struct Bottles {
             return Bottle0()
         case 1:
             return Bottle1()
+        case 6:
+            return Bottle6()
         default:
             return Bottle(number: number)
         }

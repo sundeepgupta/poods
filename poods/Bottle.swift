@@ -61,3 +61,17 @@ class Bottle1 : Bottle {
         return "it"
     }
 }
+
+class Bottle6 : Bottle {
+    init() {
+        super.init(number: 6)
+    }
+    
+    override func quantity() -> String {
+        return String(1)
+    }
+    
+    override func container() -> String {
+        return "six pack"
+    }
+}

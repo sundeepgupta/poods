@@ -25,13 +25,12 @@ struct Bottles {
             + "\(nextBottle.containerDescription()) of beer on the wall."
     }
     
-    
     func bottle(#number: Int) -> Bottle {
         switch number {
         case 0:
-            return Bottle0(number: number)
+            return Bottle0()
         case 1:
-            return Bottle1(number: number)
+            return Bottle1()
         default:
             return Bottle(number: number)
         }

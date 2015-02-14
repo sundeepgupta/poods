@@ -31,6 +31,10 @@ class Bottle {
 }
 
 class Bottle0 : Bottle {
+    init() {
+        super.init(number: 0)
+    }
+    
     override func nextNumber() -> Int {
         return 99
     }
@@ -45,6 +49,10 @@ class Bottle0 : Bottle {
 }
 
 class Bottle1 : Bottle {
+    init() {
+        super.init(number: 1)
+    }
+    
     override func container() -> String {
         return "bottle"
     }

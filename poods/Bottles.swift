@@ -27,15 +27,15 @@ struct Bottles {
     
     
     func bottle(#number: Int) -> Bottle {
-        if number == 0 {
+        switch number {
+        case 0:
             return Bottle0(number: number)
-        } else {
+        case 1:
+            return Bottle1(number: number)
+        default:
             return Bottle(number: number)
         }
     }
-    
-
-    
     
     // MARK: - Private
     private func capitalizedPhrase(phrase:String) -> String {

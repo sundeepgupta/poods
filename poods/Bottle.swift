@@ -21,20 +21,12 @@ class Bottle {
         return String(self.number)
     }
 
-    private func container() -> String {
-        if self.number == 1 {
-            return "bottle"
-        } else {
-            return "bottles"
-        }
+    func container() -> String {
+        return "bottles"
     }
     
-    private func pronoun() -> String {
-        if self.number == 1 {
-            return "it"
-        } else {
-            return "one"
-        }
+    func pronoun() -> String {
+        return "one"
     }
 }
 
@@ -49,5 +41,15 @@ class Bottle0 : Bottle {
     
     override func quantity() -> String {
         return "no more"
+    }
+}
+
+class Bottle1 : Bottle {
+    override func container() -> String {
+        return "bottle"
+    }
+    
+    override func pronoun() -> String {
+        return "it"
     }
 }

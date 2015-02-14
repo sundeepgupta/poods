@@ -1,5 +1,3 @@
-import Foundation
-
 struct Bottles {
     
     func song() -> String {
@@ -18,8 +16,8 @@ struct Bottles {
     }
     
     func verse(number:Int) -> String {
-        let bottle = Bottle(number: number)
-        let nextBottle = Bottle(number: bottle.next())
+        let bottle = self.bottle(number: number)
+        let nextBottle = self.bottle(number: bottle.nextNumber())
         
         return "\(capitalizedPhrase(bottle.containerDescription())) of beer on the wall, "
             + "\(bottle.containerDescription()) of beer.\n"
@@ -27,10 +25,19 @@ struct Bottles {
             + "\(nextBottle.containerDescription()) of beer on the wall."
     }
     
+    
+    func bottle(#number: Int) -> Bottle {
+        if number == 0 {
+            return Bottle0(number: number)
+        } else {
+            return Bottle(number: number)
+        }
+    }
+    
 
     
-    // MARK: - Private
     
+    // MARK: - Private
     private func capitalizedPhrase(phrase:String) -> String {
         let firstCharIndex = advance(phrase.startIndex, 1)
         let firstChar = phrase.substringToIndex(firstCharIndex).uppercaseString

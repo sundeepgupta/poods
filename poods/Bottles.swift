@@ -18,66 +18,23 @@ struct Bottles {
     }
     
     func verse(number:Int) -> String {
-        return "\(capitalizedPhrase(containerDescription(number: number))) of beer on the wall, "
-            + "\(containerDescription(number: number)) of beer.\n"
-            + "\(action(number: number)), "
-            + "\(containerDescription(number: successor(number: number))) of beer on the wall."
+        let bottle = Bottle(number: number)
+        let nextBottle = Bottle(number: bottle.next())
+        
+        return "\(capitalizedPhrase(bottle.containerDescription())) of beer on the wall, "
+            + "\(bottle.containerDescription()) of beer.\n"
+            + "\(bottle.action()), "
+            + "\(nextBottle.containerDescription()) of beer on the wall."
     }
+    
 
     
     // MARK: - Private
-    private func container(#number:Int) -> String {
-        if number == 1 {
-            return "bottle"
-        } else {
-            return "bottles"
-        }
-    }
     
-    private func quantity(#number:Int) -> String {
-        if number == 0 {
-            return "no more"
-        } else {
-            return String(number)
-        }
-    }
-    
-    private func action(#number:Int) -> String {
-        if number == 0 {
-            return "Go to the store and buy some more"
-        } else {
-            return "Take \(pronoun(number: number)) down and pass it around"
-        }
-    }
-    
-    private func pronoun(#number:Int) -> String {
-        if number == 1 {
-            return "it"
-        } else {
-            return "one"
-        }
-    }
-    
-    private func successor(#number:Int) -> Int {
-        if number == 0 {
-            return 99
-        } else {
-            return number-1
-        }
-    }
-    
-    private func containerDescription(#number: Int) -> String {
-        return "\(quantity(number: number)) \(container(number: number))"
-    }
-    
-    
-    // Helper
     private func capitalizedPhrase(phrase:String) -> String {
         let firstCharIndex = advance(phrase.startIndex, 1)
         let firstChar = phrase.substringToIndex(firstCharIndex).uppercaseString
         let firstCharRange = phrase.startIndex..<firstCharIndex
         return phrase.stringByReplacingCharactersInRange(firstCharRange, withString: firstChar)
     }
-    
-    
 }

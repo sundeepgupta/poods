@@ -16,8 +16,8 @@ class Farm {
     }
     
     private func verse(animal: Animal?) -> String {
-        var species = ""
-        var sound = ""
+        var species = "<silence>"
+        var sound = "<silence>"
         
         if let a = animal {
             species = a.species

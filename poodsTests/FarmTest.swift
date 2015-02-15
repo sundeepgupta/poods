@@ -44,7 +44,7 @@ class FarmTest : XCTestCase {
                         "And on that farm he had a <silence>, E-I-E-I-O,\n" +
                         "With a <silence> <silence> here and a <silence> <silence> there,\n" +
                         "Here a <silence>, there a <silence>, everywhere a <silence> <silence>,\n" +
-                        "Old MacDonald had a farm, E-I-E-I-O."
+                        "Old MacDonald had a farm, E-I-E-I-O.\n\n" +
         
                         "Old MacDonald had a farm, E-I-E-I-O,\n" +
                         "And on that farm he had an owl, E-I-E-I-O,\n" +

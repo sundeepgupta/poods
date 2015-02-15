@@ -11,8 +11,15 @@ let kData: [String: String] = [
     "yak": "low"
 ]
 
+
+protocol Singable {
+    var species: String { get }
+    var sound: String { get }
+}
+
+
 // Making this a class because XCTAssert uses AnyObject? type for comparison and Structs don't conform to AnyObject?.
-class Animal {
+class Animal : Singable {
     let species: String
     let sound: String
     
@@ -31,6 +38,13 @@ class Animal {
         })
     }
 }
+
+
+class Nanimal : Singable {
+    let species = "<silence>"
+    let sound = "<silence>"
+}
+
 
 extension String {
     func articlize() -> String {

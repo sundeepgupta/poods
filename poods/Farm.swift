@@ -16,18 +16,18 @@ class Farm {
     }
     
     private func verse(animal: Animal?) -> String {
-        var species = "<silence>"
-        var sound = "<silence>"
+        let someAnimal: Singable
         
         if let a = animal {
-            species = a.species
-            sound = a.sound
+            someAnimal = a
+        } else {
+            someAnimal = Nanimal()
         }
         
         return "Old MacDonald had a farm, E-I-E-I-O,\n" +
-                "And on that farm he had \(species.articlize()), E-I-E-I-O,\n" +
-                "With \(sound.articlize()) \(sound) here and \(sound.articlize()) \(sound) there,\n" +
-                "Here \(sound.articlize()), there \(sound.articlize()), everywhere \(sound.articlize()) \(sound),\n" +
+                "And on that farm he had \(someAnimal.species.articlize()), E-I-E-I-O,\n" +
+                "With \(someAnimal.sound.articlize()) \(someAnimal.sound) here and \(someAnimal.sound.articlize()) \(someAnimal.sound) there,\n" +
+                "Here \(someAnimal.sound.articlize()), there \(someAnimal.sound.articlize()), everywhere \(someAnimal.sound.articlize()) \(someAnimal.sound),\n" +
                 "Old MacDonald had a farm, E-I-E-I-O."
     }
 }

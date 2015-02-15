@@ -16,26 +16,13 @@ struct Bottles {
     }
     
     func verse(number:Int) -> String {
-        let bottle = self.bottle(number: number)
-        let nextBottle = self.bottle(number: bottle.nextNumber())
+        let bottle = number.bottle()
+        let nextBottle = bottle.nextNumber().bottle()
         
         return "\(capitalizedPhrase(bottle.containerDescription())) of beer on the wall, "
             + "\(bottle.containerDescription()) of beer.\n"
             + "\(bottle.action()), "
             + "\(nextBottle.containerDescription()) of beer on the wall."
-    }
-    
-    func bottle(#number: Int) -> Bottle {
-        switch number {
-        case 0:
-            return Bottle0()
-        case 1:
-            return Bottle1()
-        case 6:
-            return Bottle6()
-        default:
-            return Bottle(number: number)
-        }
     }
     
     // MARK: - Private
@@ -44,5 +31,20 @@ struct Bottles {
         let firstChar = phrase.substringToIndex(firstCharIndex).uppercaseString
         let firstCharRange = phrase.startIndex..<firstCharIndex
         return phrase.stringByReplacingCharactersInRange(firstCharRange, withString: firstChar)
+    }
+}
+
+extension Int {
+    func bottle() -> Bottle {
+        switch self {
+        case 0:
+            return Bottle0()
+        case 1:
+            return Bottle1()
+        case 6:
+            return Bottle6()
+        default:
+            return Bottle(number: self)
+        }
     }
 }

@@ -1,8 +1,14 @@
 class Farm {
-    let animals: Array<Animal?>
+    let animals: Array<Singable>
     
     init(animals: Array<Animal?>) {
-        self.animals = animals
+        self.animals = animals.map({ (animal: Animal?) -> Singable in
+            if let a = animal {
+                return a
+            } else {
+                return Nanimal()
+            }
+        })
     }
     
     func lyrics() -> String {
@@ -15,19 +21,11 @@ class Farm {
         return joiner.join(verses)
     }
     
-    private func verse(animal: Animal?) -> String {
-        let someAnimal: Singable
-        
-        if let a = animal {
-            someAnimal = a
-        } else {
-            someAnimal = Nanimal()
-        }
-        
+    private func verse(animal: Singable) -> String {
         return "Old MacDonald had a farm, E-I-E-I-O,\n" +
-                "And on that farm he had \(someAnimal.species.articlize()), E-I-E-I-O,\n" +
-                "With \(someAnimal.sound.articlize()) \(someAnimal.sound) here and \(someAnimal.sound.articlize()) \(someAnimal.sound) there,\n" +
-                "Here \(someAnimal.sound.articlize()), there \(someAnimal.sound.articlize()), everywhere \(someAnimal.sound.articlize()) \(someAnimal.sound),\n" +
+                "And on that farm he had \(animal.species.articlize()), E-I-E-I-O,\n" +
+                "With \(animal.sound.articlize()) \(animal.sound) here and \(animal.sound.articlize()) \(animal.sound) there,\n" +
+                "Here \(animal.sound.articlize()), there \(animal.sound.articlize()), everywhere \(animal.sound.articlize()) \(animal.sound),\n" +
                 "Old MacDonald had a farm, E-I-E-I-O."
     }
 }

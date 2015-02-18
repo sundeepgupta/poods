@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		27969D831A7334DA0020320F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27969D821A7334DA0020320F /* AppDelegate.swift */; };
+		27D640E61A942E50004888C4 /* HouseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D640E51A942E50004888C4 /* HouseTest.swift */; };
+		27D640E81A942EDD004888C4 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D640E71A942EDD004888C4 /* House.swift */; };
+		27D640E91A942EDD004888C4 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D640E71A942EDD004888C4 /* House.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,8 @@
 		27969D821A7334DA0020320F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27969D8D1A7334DA0020320F /* poodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = poodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27969D921A7334DA0020320F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27D640E51A942E50004888C4 /* HouseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HouseTest.swift; sourceTree = "<group>"; };
+		27D640E71A942EDD004888C4 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,7 @@
 			children = (
 				27969D821A7334DA0020320F /* AppDelegate.swift */,
 				27969D801A7334DA0020320F /* Supporting Files */,
+				27D640E71A942EDD004888C4 /* House.swift */,
 			);
 			path = poods;
 			sourceTree = "<group>";
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				27969D911A7334DA0020320F /* Supporting Files */,
+				27D640E51A942E50004888C4 /* HouseTest.swift */,
 			);
 			path = poodsTests;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D640E81A942EDD004888C4 /* House.swift in Sources */,
 				27969D831A7334DA0020320F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D640E91A942EDD004888C4 /* House.swift in Sources */,
+				27D640E61A942E50004888C4 /* HouseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -331,6 +342,7 @@
 				INFOPLIST_FILE = poodsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/poods.app/Contents/MacOS/poods";
 			};
 			name = Debug;
@@ -339,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",

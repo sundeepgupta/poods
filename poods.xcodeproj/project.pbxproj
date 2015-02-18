@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		275526BB1A8F04C400F4792A /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275526BA1A8F04C400F4792A /* Bottle.swift */; };
-		275526BC1A8F04CF00F4792A /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275526BA1A8F04C400F4792A /* Bottle.swift */; };
 		27969D831A7334DA0020320F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27969D821A7334DA0020320F /* AppDelegate.swift */; };
-		27969D941A7334DA0020320F /* bottlesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27969D931A7334DA0020320F /* bottlesTest.swift */; };
-		27969D9E1A73C9680020320F /* Bottles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27969D9D1A73C9680020320F /* Bottles.swift */; };
-		27969DA01A73FE5B0020320F /* Bottles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27969D9D1A73C9680020320F /* Bottles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +21,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		275526BA1A8F04C400F4792A /* Bottle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
 		27969D7D1A7334DA0020320F /* poods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27969D811A7334DA0020320F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27969D821A7334DA0020320F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27969D8D1A7334DA0020320F /* poodsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = poodsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27969D921A7334DA0020320F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27969D931A7334DA0020320F /* bottlesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bottlesTest.swift; sourceTree = "<group>"; };
-		27969D9D1A73C9680020320F /* Bottles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bottles.swift; sourceTree = "<group>"; };
-		27969DA21A74003B0020320F /* bottles.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = bottles.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +69,6 @@
 			children = (
 				27969D821A7334DA0020320F /* AppDelegate.swift */,
 				27969D801A7334DA0020320F /* Supporting Files */,
-				27969D9D1A73C9680020320F /* Bottles.swift */,
-				27969DA21A74003B0020320F /* bottles.playground */,
-				275526BA1A8F04C400F4792A /* Bottle.swift */,
 			);
 			path = poods;
 			sourceTree = "<group>";
@@ -96,7 +84,6 @@
 		27969D901A7334DA0020320F /* poodsTests */ = {
 			isa = PBXGroup;
 			children = (
-				27969D931A7334DA0020320F /* bottlesTest.swift */,
 				27969D911A7334DA0020320F /* Supporting Files */,
 			);
 			path = poodsTests;
@@ -207,9 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275526BB1A8F04C400F4792A /* Bottle.swift in Sources */,
 				27969D831A7334DA0020320F /* AppDelegate.swift in Sources */,
-				27969D9E1A73C9680020320F /* Bottles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,9 +202,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				275526BC1A8F04CF00F4792A /* Bottle.swift in Sources */,
-				27969D941A7334DA0020320F /* bottlesTest.swift in Sources */,
-				27969DA01A73FE5B0020320F /* Bottles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

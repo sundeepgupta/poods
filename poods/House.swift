@@ -13,11 +13,16 @@ class House {
         "the rooster that crowed in the morn that woke",
         "the farmer sowing his corn that kept",
         "the horse and the hound and the horn that belonged to"]
-    let endPhrase = "the house that Jack built.\n"
+    var endPhrase = "the house that Jack built.\n"
     
-    init(random: Bool = false) {
+    init(random: Bool = false, double: Bool = false) {
         if random {
             self.innerPhrases = Shuffler().list(self.innerPhrases)
+        }
+        
+        if double {
+            self.innerPhrases = Doubler().list(self.innerPhrases)
+            self.endPhrase = "the house that Jack built the house that Jack built.\n"
         }
     }
     
@@ -41,6 +46,13 @@ class House {
     }
 }
 
+class Doubler {
+    func list(list: Array<String>) -> Array<String> {
+        return list.map({ (item: String) -> String in
+            return item + " " + item
+        })
+    }
+}
 
 class Shuffler {
     func list(var list: Array<String>) -> Array<String> {

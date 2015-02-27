@@ -90,6 +90,8 @@ class HouseTest : XCTestCase {
         XCTAssertEqual(expected, tale.recite())
     }
     
+    
+    // MARK: - Random
     let randomInnerPhrases = ["the dog that worried",
         "the malt that lay in",
         "the maiden all forlorn that milked",
@@ -139,5 +141,36 @@ class HouseTest : XCTestCase {
             "This is the priest all shaven and shorn that married the rooster that crowed in the morn that woke the farmer sowing his corn that kept the cat that killed the man all tattered and torn that kissed the horse and the hound and the horn that belonged to the rat that ate the maiden all forlorn that milked the malt that lay in the dog that worried the house that Jack built.\n\n" +
         "This is the cow with the crumpled horn that tossed the priest all shaven and shorn that married the rooster that crowed in the morn that woke the farmer sowing his corn that kept the cat that killed the man all tattered and torn that kissed the horse and the hound and the horn that belonged to the rat that ate the maiden all forlorn that milked the malt that lay in the dog that worried the house that Jack built.\n"
         XCTAssertEqual(expected, tale.recite())
-    }    
+    }
+    
+    
+    // MARK: - Double
+    func testDoubleLine1() {
+        let tale = House(double: true)
+        let expected = "This is the house that Jack built the house that Jack built.\n"
+        XCTAssertEqual(expected, tale.line(1))
+    }
+    
+    func testDoubleLine2() {
+        let tale = House(double: true)
+        let expected = "This is the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n"
+        XCTAssertEqual(expected, tale.line(2))
+    }
+    
+    func testDoubleAllLines() {
+        let tale = House(double: true)
+        let expected = "This is the house that Jack built the house that Jack built.\n\n" +
+            "This is the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the man all tattered and torn that kissed the man all tattered and torn that kissed the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the priest all shaven and shorn that married the priest all shaven and shorn that married the man all tattered and torn that kissed the man all tattered and torn that kissed the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the rooster that crowed in the morn that woke the rooster that crowed in the morn that woke the priest all shaven and shorn that married the priest all shaven and shorn that married the man all tattered and torn that kissed the man all tattered and torn that kissed the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+            "This is the farmer sowing his corn that kept the farmer sowing his corn that kept the rooster that crowed in the morn that woke the rooster that crowed in the morn that woke the priest all shaven and shorn that married the priest all shaven and shorn that married the man all tattered and torn that kissed the man all tattered and torn that kissed the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n\n" +
+        "This is the horse and the hound and the horn that belonged to the horse and the hound and the horn that belonged to the farmer sowing his corn that kept the farmer sowing his corn that kept the rooster that crowed in the morn that woke the rooster that crowed in the morn that woke the priest all shaven and shorn that married the priest all shaven and shorn that married the man all tattered and torn that kissed the man all tattered and torn that kissed the maiden all forlorn that milked the maiden all forlorn that milked the cow with the crumpled horn that tossed the cow with the crumpled horn that tossed the dog that worried the dog that worried the cat that killed the cat that killed the rat that ate the rat that ate the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n"
+        XCTAssertEqual(expected, tale.recite())
+    }
 }

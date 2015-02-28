@@ -18,14 +18,8 @@ class House {
     ]
     var lineEnd = ".\n"
     
-    init(random: Bool = false, double: Bool = false) {
-        if random {
-            self.phrases = Shuffler().list(self.phrases)
-        }
-        
-        if double {
-            self.phrases = Doubler().list(self.phrases)
-        }
+    init(listChanger: ListChanger = Keeper()) {
+        self.phrases = listChanger.result(self.phrases)
     }
     
     func recite() -> String {
@@ -46,21 +40,37 @@ class House {
     }
 }
 
-class Doubler {
-    func list(list: Array<String>) -> Array<String> {
+protocol ListChanger {
+    func result(list: Array<String>) -> Array<String>
+}
+
+class Keeper : ListChanger {
+    func result(list: Array<String>) -> Array<String> {
+        return list;
+    }
+}
+
+class Doubler : ListChanger {
+    func result(list: Array<String>) -> Array<String> {
         return list.map({ (item: String) -> String in
             return item + " " + item
         })
     }
 }
 
-class Shuffler {
-    func list(var list: Array<String>) -> Array<String> {
+class Shuffler : ListChanger {
+    func result(var list: Array<String>) -> Array<String> {
         let listCount = count(list)
         for i in 0..<(listCount - 1) {
             let j = Int(arc4random_uniform(UInt32(listCount - i))) + i
             swap(&list[i], &list[j])
         }
         return list
+    }
+}
+
+class Reverser : ListChanger {
+    func result(list: Array<String>) -> Array<String> {
+        return list.reverse()
     }
 }

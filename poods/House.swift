@@ -1,8 +1,10 @@
 import Foundation
 
 class House {
-    let lineStart = "This is"
-    var innerPhrases = ["the malt that lay in",
+    let lineStart = "This is "
+    var phrases = [
+        "the house that Jack built",
+        "the malt that lay in",
         "the rat that ate",
         "the cat that killed",
         "the dog that worried",
@@ -12,23 +14,23 @@ class House {
         "the priest all shaven and shorn that married",
         "the rooster that crowed in the morn that woke",
         "the farmer sowing his corn that kept",
-        "the horse and the hound and the horn that belonged to"]
-    var endPhrase = "the house that Jack built.\n"
+        "the horse and the hound and the horn that belonged to"
+    ]
+    var lineEnd = ".\n"
     
     init(random: Bool = false, double: Bool = false) {
         if random {
-            self.innerPhrases = Shuffler().list(self.innerPhrases)
+            self.phrases = Shuffler().list(self.phrases)
         }
         
         if double {
-            self.innerPhrases = Doubler().list(self.innerPhrases)
-            self.endPhrase = "the house that Jack built the house that Jack built.\n"
+            self.phrases = Doubler().list(self.phrases)
         }
     }
     
     func recite() -> String {
         var lines = [String]()
-        for i in 1...self.innerPhrases.count+1 {
+        for i in 1...self.phrases.count {
             let line = self.line(i)
             lines.append(line)
         }
@@ -36,13 +38,11 @@ class House {
         return "\n".join(lines)
     }
     
-    
     func line(number: Int) -> String {
-        var phrases = self.innerPhrases
-        phrases.insert(self.endPhrase, atIndex: 0)
+        var phrases = self.phrases
         var linePhrases = phrases[0...number-1].reverse()
-        linePhrases.insert(self.lineStart, atIndex: 0)
-        return " ".join(linePhrases)
+        let line = " ".join(linePhrases)
+        return self.lineStart + line + self.lineEnd
     }
 }
 

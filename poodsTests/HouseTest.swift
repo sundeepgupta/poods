@@ -107,21 +107,27 @@ class HouseTest : XCTestCase {
     ]
     
     func testRandomLine2() {
-        let tale = House(listChanger: Shuffler())
+        let tale = House(listChangers: [Shuffler()])
         tale.phrases = self.randomPhrases
         let expected = "This is the malt that lay in the dog that worried.\n"
         XCTAssertEqual(expected, tale.line(2))
     }
     
     func testDoubleLine2() {
-        let tale = House(listChanger: Doubler())
+        let tale = House(listChangers: [Doubler()])
         let expected = "This is the malt that lay in the malt that lay in the house that Jack built the house that Jack built.\n"
         XCTAssertEqual(expected, tale.line(2))
     }
     
     func testReverseLine2() {
-        let tale = House(listChanger: Reverser())
+        let tale = House(listChangers: [Reverser()])
         let expected = "This is the farmer sowing his corn that kept the horse and the hound and the horn that belonged to.\n"
         XCTAssertEqual(expected, tale.line(2))
-    }    
+    }
+    
+    func testDoubleReverseLine2() {
+        let tale = House(listChangers: [Doubler(), Reverser()])
+        let expected = "This is the farmer sowing his corn that kept the farmer sowing his corn that kept the horse and the hound and the horn that belonged to the horse and the hound and the horn that belonged to.\n"
+        XCTAssertEqual(expected, tale.line(2))
+    }
 }

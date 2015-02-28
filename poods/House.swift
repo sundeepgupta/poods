@@ -18,8 +18,10 @@ class House {
     ]
     var lineEnd = ".\n"
     
-    init(listChanger: ListChanger = Keeper()) {
-        self.phrases = listChanger.result(self.phrases)
+    init(listChangers: Array<ListChanger> = [Keeper()]) {
+        for listChanger in listChangers {
+            self.phrases = listChanger.result(self.phrases)
+        }
     }
     
     func recite() -> String {
